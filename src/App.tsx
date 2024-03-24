@@ -1,7 +1,9 @@
+import Transactions from "./pages/Transactions";
+
 export default function App() {
   return (
-    <h1>
-      Hello
-    </h1>
+    <>
+      <Transactions />
+    </>
   )
 }
