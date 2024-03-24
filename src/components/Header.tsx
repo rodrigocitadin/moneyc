@@ -1,12 +1,14 @@
 export default function Header() {
   return (
-    <header className="bg-gray-900 pt-4 pb-8">
+    <header className="bg-gray-900 pt-12 pb-32">
       <div
-        className="w-full max-w-[1100px] mx-auto px-2 flex justify-between items-center" 
+        className="w-full max-w-[1100px] mx-auto px-4 flex justify-between items-center"
       >
-        <h1>moneyc</h1>
-        <button>
-          new transaction
+        <h1 className="font-bold text-3xl">Moneyc</h1>
+        <button
+          className="h-12 border-none bg-blue-500 text-white font-bold px-4 rounded-md hover:bg-blue-700 transition-colors duration-200"
+        >
+          New transaction
         </button>
       </div>
     </header>
