@@ -1,4 +1,5 @@
 import * as Dialog from '@radix-ui/react-dialog';
+import NewTransactionModal from './NewTransactionModal';
 
 export default function Header() {
   return (
@@ -14,15 +15,7 @@ export default function Header() {
               New transaction
             </button>
           </Dialog.Trigger>
-          <Dialog.Portal>
-            <Dialog.Overlay/>
-            <Dialog.Content>
-              <Dialog.Title>
-                Test
-              </Dialog.Title>
-              <Dialog.Close/>
-            </Dialog.Content>
-          </Dialog.Portal>
+          <NewTransactionModal />
         </Dialog.Root>
       </div>
     </header>
