@@ -1,5 +1,5 @@
 import { Close, Content, Overlay, Portal, Title } from "@radix-ui/react-dialog";
-import { X } from "phosphor-react";
+import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
 
 export default function NewTransactionModal() {
   return (
@@ -34,6 +34,17 @@ export default function NewTransactionModal() {
             placeholder="Category"
             required
           />
+
+          <div className="grid grid-cols-2 gap-4 mt-2">
+            <button className="bg-gray-700 p-4 flex items-center justify-center gap-2 rounded-md text-gray-300">
+              <ArrowCircleUp size={24} className="text-blue-500"/>
+              Income
+            </button>
+            <button className="bg-gray-700 p-4 flex items-center justify-center gap-2 rounded-md text-gray-300">
+              <ArrowCircleDown size={24} className="text-red-500"/>
+              Outcome
+            </button>
+          </div>
 
           <button
             className="h-16 border-none bg-blue-500 hover:bg-blue-700 transition-colors duration-200 text-white font-bold rounded-md mt-6"
