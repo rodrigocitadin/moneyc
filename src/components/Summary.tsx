@@ -5,14 +5,14 @@ export default function Summary() {
     <div className="w-full max-w-[1100px] mx-auto px-6 grid grid-cols-3 gap-8 mt-[-5rem]">
       <div className="bg-gray-600 rounded-md p-8">
         <header className="flex items-center justify-between text-gray-300">
-          <span>Inflow</span>
+          <span>Income</span>
           <ArrowCircleUp size={32} className="text-blue-500"/>
         </header>
         <strong className="block mt-4 text-3xl">USD 17,450.50</strong>
       </div>
       <div className="bg-gray-600 rounded-md p-8">
         <header className="flex items-center justify-between text-gray-300">
-          <span>Outflow</span>
+          <span>Outcome</span>
           <ArrowCircleDown size={32} className="text-red-500"/>
         </header>
         <strong className="block mt-4 text-3xl">USD 13,200.70</strong>
