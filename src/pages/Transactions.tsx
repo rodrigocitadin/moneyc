@@ -1,8 +1,26 @@
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import SearchForm from "../components/SearchForm";
 import Summary from "../components/Summary";
 
+interface Transaction {
+  id: number
+  description: string
+  kind: 'income' | 'outcome'
+  category: string
+  price: number
+  createdAt: string
+}
+
 export default function Transactions() {
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/transactions')
+      .then(res => res.json())
+      .then(data => setTransactions(data));
+  }, [])
+
   return (
     <>
       <Header />
@@ -11,16 +29,17 @@ export default function Transactions() {
         <SearchForm />
         <table className="w-full border-separate border-spacing-y-2 mt-6">
           <tbody>
-            <tr className="*:py-6 *:px-8 *:bg-gray-700">
-              <td className="rounded-l-md" width="50%">Website development</td>
-              <td className="text-blue-300">USD 12,000.00</td>
-              <td className="rounded-r-md">02/13/2024</td>
-            </tr>
-            <tr className="*:py-6 *:px-8 *:bg-gray-700">
-              <td className="rounded-l-md" width="50%">Burguer</td>
-              <td className="text-red-300">USD - 55.50</td>
-              <td className="rounded-r-md">02/12/2024</td>
-            </tr>
+            {
+              transactions.map(v => {
+                return (
+                  <tr key={v.id} className="*:py-6 *:px-8 *:bg-gray-700">
+                    <td className="rounded-l-md" width="50%">{v.description}</td>
+                    <td className="text-blue-300">USD {v.price}</td>
+                    <td className="rounded-r-md">{v.createdAt}</td>
+                  </tr>
+                )
+              })
+            }
           </tbody>
         </table>
       </main>
