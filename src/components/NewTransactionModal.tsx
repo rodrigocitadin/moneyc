@@ -37,8 +37,8 @@ export default function NewTransactionModal() {
           />
 
           <Root className="grid grid-cols-2 gap-4 mt-2">
-            <Item value="income" className="data-[state=unchecked]:hover:bg-gray-600 *:data-[state=checked]:text-white data-[state=checked]:text-white data-[state=checked]:bg-blue-500 bg-gray-700 p-4 flex items-center justify-center gap-2 rounded-md text-gray-300">
-              <ArrowCircleUp size={24} className="text-blue-500"/>
+            <Item value="income" className="data-[state=unchecked]:hover:bg-gray-600 *:data-[state=checked]:text-white data-[state=checked]:text-white data-[state=checked]:bg-green-500 bg-gray-700 p-4 flex items-center justify-center gap-2 rounded-md text-gray-300">
+              <ArrowCircleUp size={24} className="text-green-500"/>
               Income
             </Item>
             <Item value="outcome" className="data-[state=unchecked]:hover:bg-gray-600 *:data-[state=checked]:text-white data-[state=checked]:text-white data-[state=checked]:bg-red-500 bg-gray-700 p-4 flex items-center justify-center gap-2 rounded-md text-gray-300">
@@ -48,7 +48,7 @@ export default function NewTransactionModal() {
           </Root>
 
           <button
-            className="h-16 border-none bg-blue-500 hover:bg-blue-700 transition-colors duration-200 text-white font-bold rounded-md mt-6"
+            className="h-16 border-none bg-purple-500 hover:bg-purple-700 transition-colors duration-200 text-white font-bold rounded-md mt-6"
           >
             Submit
           </button>

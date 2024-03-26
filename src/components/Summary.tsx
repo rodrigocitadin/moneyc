@@ -26,7 +26,7 @@ export default function Summary() {
       <div className="bg-gray-600 rounded-md p-8">
         <header className="flex items-center justify-between text-gray-300">
           <span>Income</span>
-          <ArrowCircleUp size={32} className="text-blue-500" />
+          <ArrowCircleUp size={32} className="text-green-500" />
         </header>
         <strong className="block mt-4 text-3xl">USD {summary.income}</strong>
       </div>
@@ -37,7 +37,7 @@ export default function Summary() {
         </header>
         <strong className="block mt-4 text-3xl">USD {summary.outcome}</strong>
       </div>
-      <div className="bg-blue-700 rounded-md p-8">
+      <div className="bg-purple-700 rounded-md p-8">
         <header className="flex items-center justify-between text-gray-300">
           <span>Total</span>
           <CurrencyDollar size={32} className="text-white" />

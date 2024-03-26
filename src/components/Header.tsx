@@ -10,7 +10,7 @@ export default function Header() {
         <Dialog.Root>
           <Dialog.Trigger asChild>
             <button
-              className="h-12 border-none bg-blue-500 text-white font-bold px-4 rounded-md hover:bg-blue-700 transition-colors duration-200"
+              className="h-12 border-none bg-purple-500 text-white font-bold px-4 rounded-md hover:bg-purple-700 transition-colors duration-200"
             >
               New transaction
             </button>

@@ -9,9 +9,9 @@ export default function SearchForm() {
         type="text"
       />
       <button
-        className="transition-all duration-200 flex items-center gap-4 p-4 bg-transparent border-2 border-blue-300 text-blue-300 font-bold rounded-md hover:bg-blue-500 hover:border-blue-500 hover:text-white"
+        className="transition-all duration-200 flex items-center gap-4 p-4 bg-transparent border-2 border-purple-300 text-purple-300 font-bold rounded-md hover:bg-purple-500 hover:border-purple-500 hover:text-white"
       >
-        <MagnifyingGlass size={20}/>
+        <MagnifyingGlass size={20} />
         Search
       </button>
     </form>
