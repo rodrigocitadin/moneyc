@@ -4,6 +4,7 @@ import { Item, Root } from "@radix-ui/react-radio-group";
 import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
 import { Controller, useForm } from "react-hook-form";
 import * as z from 'zod';
+import { api } from "../lib/axios";
 
 const newTransactionFormSchema = z.object({
   description: z.string(),
@@ -20,8 +21,11 @@ export default function NewTransactionModal() {
     defaultValues: { kind: 'income' }
   })
 
-  function handleNewFormSubmit(data: NewTransactionFormInputs) {
-    console.log(data);
+  async function handleNewFormSubmit(data: NewTransactionFormInputs) {
+    await api.post('transactions', {
+      ...data,
+      createdAt: new Date()
+    })
   }
 
   return (
