@@ -10,16 +10,17 @@ const searchFormSchema = z.object({
 type SearchFormInput = z.infer<typeof searchFormSchema>;
 
 export default function SearchForm() {
-  const { register, handleSubmit } = useForm<SearchFormInput>({
+  const { register, handleSubmit, formState: { isSubmitting } } = useForm<SearchFormInput>({
     resolver: zodResolver(searchFormSchema)
   })
 
-  function handleFormSubmit(data: SearchFormInput) {
+  async function handleFormSubmit(data: SearchFormInput) {
+    await new Promise(resolve => setTimeout(resolve, 2000));
     console.log(data);
   }
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)}  className="flex gap-4">
+    <form onSubmit={handleSubmit(handleFormSubmit)} className="flex gap-4">
       <input
         className="flex-1 rounded-md border-none bg-gray-900 text-gray-300 p-4 placeholder:text-gray-500"
         placeholder="Search for a transaction"
@@ -27,7 +28,8 @@ export default function SearchForm() {
         {...register('query')}
       />
       <button
-        className="transition-all duration-200 flex items-center gap-4 p-4 bg-transparent border-2 border-purple-300 text-purple-300 font-bold rounded-md hover:bg-purple-500 hover:border-purple-500 hover:text-white"
+        className="disabled:opacity-70 transition-all duration-200 flex items-center gap-4 p-4 bg-transparent border-2 border-purple-300 text-purple-300 font-bold rounded-md [&:not(:disabled)]:hover:bg-purple-500 [&:not(:disabled)]:hover:border-purple-500 [&:not(:disabled)]:hover:text-white"
+        disabled={isSubmitting}
       >
         <MagnifyingGlass size={20} />
         Search
