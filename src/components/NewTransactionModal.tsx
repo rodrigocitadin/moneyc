@@ -26,6 +26,9 @@ export default function NewTransactionModal() {
       ...data,
       createdAt: new Date()
     })
+
+    // reset();
+    window.location.reload();
   }
 
   return (
