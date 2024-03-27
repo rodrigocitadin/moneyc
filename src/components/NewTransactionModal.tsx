@@ -16,7 +16,8 @@ type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
 export default function NewTransactionModal() {
   const { register, handleSubmit, formState: { isSubmitting }, control } = useForm<NewTransactionFormInputs>({
-    resolver: zodResolver(newTransactionFormSchema)
+    resolver: zodResolver(newTransactionFormSchema),
+    defaultValues: { kind: 'income' }
   })
 
   function handleNewFormSubmit(data: NewTransactionFormInputs) {
@@ -64,7 +65,7 @@ export default function NewTransactionModal() {
             name="kind"
             render={({ field }) => {
               return (
-                <Root onValueChange={field.onChange} className="grid grid-cols-2 gap-4 mt-2">
+                <Root onValueChange={field.onChange} value={field.value} className="grid grid-cols-2 gap-4 mt-2">
                   <Item value="income" className="data-[state=unchecked]:hover:bg-gray-600 *:data-[state=checked]:text-white data-[state=checked]:text-white data-[state=checked]:bg-green-500 bg-gray-700 p-4 flex items-center justify-center gap-2 rounded-md text-gray-300">
                     <ArrowCircleUp size={24} className="text-green-500" />
                     Income
