@@ -45,7 +45,7 @@ export default function NewTransactionModal() {
             type="number"
             placeholder="Amount"
             required
-            {...register('price')}
+            {...register('price', { valueAsNumber: true })}
           />
           <input
             className="rounded-md border-none bg-gray-900 text-gray-300 p-4 placeholder:text-gray-500"
