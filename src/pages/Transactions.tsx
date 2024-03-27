@@ -22,7 +22,6 @@ export default function Transactions() {
                   <tr key={v.id} className="*:py-6 *:px-8 *:bg-gray-700">
                     <td className="rounded-l-md" width="50%">{v.description}</td>
                     <td className={v.kind === 'outcome' ? "text-red-300" : "text-green-300"}>
-                      {v.kind === 'outcome' && '- '}
                       {currencyFormatter.format(v.price)}
                     </td>
                     <td>{v.category}</td>

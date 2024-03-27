@@ -8,7 +8,7 @@ import { api } from "../lib/axios";
 
 const newTransactionFormSchema = z.object({
   description: z.string(),
-  price: z.number(),
+  price: z.number().positive(),
   category: z.string(),
   kind: z.enum(['income', 'outcome'])
 });
@@ -22,12 +22,13 @@ export default function NewTransactionModal() {
   })
 
   async function handleNewFormSubmit(data: NewTransactionFormInputs) {
+    if (data.kind === 'outcome') data.price = data.price * -1;
+
     await api.post('transactions', {
       ...data,
       createdAt: new Date()
     })
 
-    // reset();
     window.location.reload();
   }
 

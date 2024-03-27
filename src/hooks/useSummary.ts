@@ -12,7 +12,7 @@ export default function useSummary() {
 
     if (transaction.kind === 'outcome') {
       acc.outcome += transaction.price
-      acc.total -= transaction.price
+      acc.total += transaction.price
     }
 
     return acc;
