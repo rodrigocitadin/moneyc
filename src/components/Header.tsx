@@ -1,5 +1,5 @@
-import * as Dialog from '@radix-ui/react-dialog';
-import NewTransactionModal from './NewTransactionModal';
+import * as Dialog from "@radix-ui/react-dialog";
+import NewTransactionModal from "./NewTransactionModal";
 
 export default function Header() {
   return (
@@ -19,5 +19,5 @@ export default function Header() {
         </Dialog.Root>
       </div>
     </header>
-  )
+  );
 }

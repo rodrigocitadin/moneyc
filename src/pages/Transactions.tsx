@@ -21,18 +21,18 @@ export default function Transactions() {
                 return (
                   <tr key={v.id} className="*:py-6 *:px-8 *:bg-gray-700">
                     <td className="rounded-l-md" width="50%">{v.description}</td>
-                    <td className={v.kind === 'outcome' ? "text-red-300" : "text-green-300"}>
+                    <td className={v.kind === "outcome" ? "text-red-300" : "text-green-300"}>
                       {currencyFormatter.format(v.price)}
                     </td>
                     <td>{v.category}</td>
                     <td className="rounded-r-md">{dateFormatter.format(new Date(v.createdAt))}</td>
                   </tr>
-                )
+                );
               })
             }
           </tbody>
         </table>
       </main>
     </>
-  )
+  );
 }

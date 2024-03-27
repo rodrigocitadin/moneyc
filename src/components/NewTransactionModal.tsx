@@ -3,14 +3,14 @@ import { Close, Content, Overlay, Portal, Title } from "@radix-ui/react-dialog";
 import { Item, Root } from "@radix-ui/react-radio-group";
 import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
 import { Controller, useForm } from "react-hook-form";
-import * as z from 'zod';
+import * as z from "zod";
 import { api } from "../lib/axios";
 
 const newTransactionFormSchema = z.object({
   description: z.string(),
   price: z.number().positive(),
   category: z.string(),
-  kind: z.enum(['income', 'outcome'])
+  kind: z.enum(["income", "outcome"])
 });
 
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
@@ -18,16 +18,16 @@ type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 export default function NewTransactionModal() {
   const { register, handleSubmit, formState: { isSubmitting }, control } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema),
-    defaultValues: { kind: 'income' }
-  })
+    defaultValues: { kind: "income" }
+  });
 
   async function handleNewFormSubmit(data: NewTransactionFormInputs) {
-    if (data.kind === 'outcome') data.price = data.price * -1;
+    if (data.kind === "outcome") data.price = data.price * -1;
 
-    await api.post('transactions', {
+    await api.post("transactions", {
       ...data,
       createdAt: new Date()
-    })
+    });
 
     window.location.reload();
   }
@@ -51,21 +51,21 @@ export default function NewTransactionModal() {
             type="text"
             placeholder="Description"
             required
-            {...register('description')}
+            {...register("description")}
           />
           <input
             className="rounded-md border-none bg-gray-900 text-gray-300 p-4 placeholder:text-gray-500"
             type="number"
             placeholder="Amount"
             required
-            {...register('price', { valueAsNumber: true })}
+            {...register("price", { valueAsNumber: true })}
           />
           <input
             className="rounded-md border-none bg-gray-900 text-gray-300 p-4 placeholder:text-gray-500"
             type="text"
             placeholder="Category"
             required
-            {...register('category')}
+            {...register("category")}
           />
 
           <Controller
@@ -83,7 +83,7 @@ export default function NewTransactionModal() {
                     Outcome
                   </Item>
                 </Root>
-              )
+              );
             }}
           />
 
@@ -97,5 +97,5 @@ export default function NewTransactionModal() {
         </form>
       </Content>
     </Portal>
-  )
+  );
 }

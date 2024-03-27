@@ -29,5 +29,5 @@ export default function Summary() {
         <strong className="block mt-4 text-3xl">{currencyFormatter.format(summary.total)}</strong>
       </div>
     </div>
-  )
+  );
 }
