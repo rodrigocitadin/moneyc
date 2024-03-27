@@ -22,7 +22,11 @@ export function TransactionsProvider({ children }: { children: React.ReactNode }
 
   async function fetchTransactions(query?: string) {
     const res = await api.get('transactions', {
-      params: { q: query }
+      params: {
+        _sort: 'createdAt',
+        _order: 'desc',
+        q: query
+      }
     })
 
     setTransactions(res.data);
