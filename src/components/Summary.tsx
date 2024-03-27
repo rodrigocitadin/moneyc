@@ -1,6 +1,7 @@
 import { ArrowCircleUp, ArrowCircleDown, CurrencyDollar } from "phosphor-react";
 import { useContext } from "react";
 import { TransactionsContext } from "../contexts/TransactionsContext";
+import { currencyFormatter } from "../utils/formatter";
 
 export default function Summary() {
   const { transactions } = useContext(TransactionsContext);
@@ -28,21 +29,21 @@ export default function Summary() {
           <span>Income</span>
           <ArrowCircleUp size={32} className="text-green-500" />
         </header>
-        <strong className="block mt-4 text-3xl">USD {summary.income}</strong>
+        <strong className="block mt-4 text-3xl">{currencyFormatter.format(summary.income)}</strong>
       </div>
       <div className="bg-gray-600 rounded-md p-8">
         <header className="flex items-center justify-between text-gray-300">
           <span>Outcome</span>
           <ArrowCircleDown size={32} className="text-red-500" />
         </header>
-        <strong className="block mt-4 text-3xl">USD {summary.outcome}</strong>
+        <strong className="block mt-4 text-3xl">{currencyFormatter.format(summary.outcome)}</strong>
       </div>
       <div className="bg-purple-700 rounded-md p-8">
         <header className="flex items-center justify-between text-gray-300">
           <span>Total</span>
           <CurrencyDollar size={32} className="text-white" />
         </header>
-        <strong className="block mt-4 text-3xl">USD {summary.total}</strong>
+        <strong className="block mt-4 text-3xl">{currencyFormatter.format(summary.total)}</strong>
       </div>
     </div>
   )

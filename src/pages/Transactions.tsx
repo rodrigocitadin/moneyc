@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import SearchForm from "../components/SearchForm";
 import Summary from "../components/Summary";
 import { TransactionsContext } from "../contexts/TransactionsContext";
+import { currencyFormatter, dateFormatter } from "../utils/formatter";
 
 export default function Transactions() {
   const { transactions } = useContext(TransactionsContext);
@@ -20,8 +21,11 @@ export default function Transactions() {
                 return (
                   <tr key={v.id} className="*:py-6 *:px-8 *:bg-gray-700">
                     <td className="rounded-l-md" width="50%">{v.description}</td>
-                    <td className="text-green-300">USD {v.price}</td>
-                    <td className="rounded-r-md">{v.createdAt}</td>
+                    <td className={v.kind === 'outcome' ? "text-red-300" : "text-green-300"}>
+                      {v.kind === 'outcome' && '- '}
+                      {currencyFormatter.format(v.price)}
+                    </td>
+                    <td className="rounded-r-md">{dateFormatter.format(new Date(v.createdAt))}</td>
                   </tr>
                 )
               })
