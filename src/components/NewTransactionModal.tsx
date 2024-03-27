@@ -19,6 +19,10 @@ export default function NewTransactionModal() {
     resolver: zodResolver(newTransactionFormSchema)
   })
 
+  function handleNewFormSubmit(data: NewTransactionFormInputs) {
+    console.log(data);
+  }
+
   return (
     <Portal>
       <Overlay className="fixed h-screen w-screen inset-0 bg-[#00000075]" />
@@ -32,7 +36,7 @@ export default function NewTransactionModal() {
         </div>
 
 
-        <form className="flex mt-8 flex-col gap-4">
+        <form onSubmit={handleSubmit(handleNewFormSubmit)} className="flex mt-8 flex-col gap-4">
           <input
             className="rounded-md border-none bg-gray-900 text-gray-300 p-4 placeholder:text-gray-500"
             type="text"
@@ -67,7 +71,8 @@ export default function NewTransactionModal() {
           </Root>
 
           <button
-            className="h-16 border-none bg-purple-500 hover:bg-purple-700 transition-colors duration-200 text-white font-bold rounded-md mt-6"
+            className="h-16 border-none bg-purple-500 [&:not(:disabled)]:hover:bg-purple-700 transition-colors duration-200 text-white font-bold rounded-md mt-6"
+            disabled={isSubmitting}
           >
             Submit
           </button>
