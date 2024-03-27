@@ -24,13 +24,8 @@ export function TransactionsProvider({ children }: { children: React.ReactNode }
 
     query && url.searchParams.append('q', query);
 
-    console.log(url);
-
     const res = await fetch(url);
     const data = await res.json();
-
-    console.log(res);
-    console.log(data);
 
     setTransactions(data);
   }
