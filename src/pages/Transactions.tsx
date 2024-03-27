@@ -25,6 +25,7 @@ export default function Transactions() {
                       {v.kind === 'outcome' && '- '}
                       {currencyFormatter.format(v.price)}
                     </td>
+                    <td>{v.category}</td>
                     <td className="rounded-r-md">{dateFormatter.format(new Date(v.createdAt))}</td>
                   </tr>
                 )
