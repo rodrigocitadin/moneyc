@@ -20,7 +20,7 @@ export default function NewTransactionModal() {
   const createTransaction = useContextSelector(
     TransactionsContext,
     context => context.createTransaction
-  )
+  );
   const { register, handleSubmit, formState: { isSubmitting }, control } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema),
     defaultValues: { kind: "income" }

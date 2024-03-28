@@ -11,12 +11,12 @@ interface Transaction {
   createdAt: string
 }
 
-type CreateTransaction = Omit<Transaction, 'id' | 'createdAt'>
+type CreateTransactionData = Omit<Transaction, 'id' | 'createdAt'>
 
 interface TransactionsContextType {
   transactions: Transaction[]
   fetchTransactions: (query?: string) => void
-  createTransaction: (data: CreateTransaction) => void
+  createTransaction: (data: CreateTransactionData) => void
 }
 
 export const TransactionsContext = createContext({} as TransactionsContextType);
@@ -36,7 +36,7 @@ export function TransactionsProvider({ children }: { children: React.ReactNode }
     setTransactions(res.data);
   }
 
-  async function createTransaction(data: any) {
+  async function createTransaction(data: CreateTransactionData) {
     if (data.kind === "outcome") data.price = data.price * -1;
 
     await api.post("transactions", {
