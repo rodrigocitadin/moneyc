@@ -8,19 +8,19 @@ First, clone:
 
 `git clone https://github.com/rodrigocitadin/moneyc && cd moneyc`
 
-Then, install deps:
+Then, install the deps:
 
 `npm i`
 
-So, run the server:
+So, run the database:
 
-`npm run dev:server`
+`npm run dev:db`
 
-And run the front
+And run the front end
 
 `npm run dev`
 
-Go to `localhost:5173` in your browser and done!
+Go to `localhost:5173` in your browser and you're done!
 
 ## Todo
 
