@@ -11,7 +11,7 @@ interface Transaction {
   createdAt: string
 }
 
-type CreateTransactionData = Omit<Transaction, 'id' | 'createdAt'>
+type CreateTransactionData = Omit<Transaction, "id" | "createdAt">
 
 interface TransactionsContextType {
   transactions: Transaction[]
@@ -36,7 +36,7 @@ export function TransactionsProvider({ children }: { children: React.ReactNode }
 
       setTransactions(res.data);
     }, []
-  )
+  );
 
   const createTransaction = useCallback(async (data: CreateTransactionData) => {
     if (data.kind === "outcome") data.price = data.price * -1;
@@ -46,7 +46,7 @@ export function TransactionsProvider({ children }: { children: React.ReactNode }
       createdAt: new Date()
     });
   }, []
-  )
+  );
 
   useEffect(() => {
     fetchTransactions();
