@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import SearchForm from "../components/SearchForm";
 import Summary from "../components/Summary";
 import { TransactionsContext } from "../contexts/TransactionsContext";
@@ -13,7 +12,6 @@ export default function Transactions() {
 
   return (
     <>
-      <Header />
       <Summary />
       <main className="w-full max-w-[1100px] mt-16 mx-auto px-6">
         <SearchForm />
