@@ -3,8 +3,9 @@ import { Close, Content, Overlay, Portal, Title } from "@radix-ui/react-dialog";
 import { Item, Root } from "@radix-ui/react-radio-group";
 import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
 import { Controller, useForm } from "react-hook-form";
+import { useContextSelector } from "use-context-selector";
 import * as z from "zod";
-import { api } from "../lib/axios";
+import { TransactionsContext } from "../contexts/TransactionsContext";
 
 const newTransactionFormSchema = z.object({
   description: z.string(),
@@ -16,18 +17,17 @@ const newTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
 export default function NewTransactionModal() {
+  const createTransaction = useContextSelector(
+    TransactionsContext,
+    context => context.createTransaction
+  )
   const { register, handleSubmit, formState: { isSubmitting }, control } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema),
     defaultValues: { kind: "income" }
   });
 
   async function handleNewFormSubmit(data: NewTransactionFormInputs) {
-    if (data.kind === "outcome") data.price = data.price * -1;
-
-    await api.post("transactions", {
-      ...data,
-      createdAt: new Date()
-    });
+    createTransaction(data);
 
     window.location.reload();
   }
