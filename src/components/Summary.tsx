@@ -24,7 +24,7 @@ export default function Summary() {
       <div className="bg-black rounded-md p-8">
         <header className="flex items-center justify-between">
           <span className="text-white">Total</span>
-          <CurrencyDollar size={32} />
+          <CurrencyDollar size={32} className="text-black"/>
         </header>
         <strong className="text-gray-200 block mt-4 text-3xl">{currencyFormatter.format(summary.total)}</strong>
       </div>
