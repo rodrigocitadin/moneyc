@@ -28,13 +28,13 @@ export default function SearchFormComponent() {
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className="flex gap-4">
       <input
-        className="flex-1 rounded-md border-none bg-gray-900 text-gray-300 p-4 placeholder:text-gray-500"
+        className="flex-1 rounded-md border-2 border-black text-gray-800 p-4 placeholder:text-gray-500"
         placeholder="Search for a transaction"
         type="text"
         {...register("query")}
       />
       <button
-        className="disabled:opacity-70 transition-all duration-200 flex items-center gap-4 p-4 bg-transparent border-2 border-purple-300 text-purple-300 font-bold rounded-md [&:not(:disabled)]:hover:bg-purple-500 [&:not(:disabled)]:hover:border-purple-500 [&:not(:disabled)]:hover:text-white"
+        className="disabled:opacity-70 transition-all duration-200 flex items-center gap-4 p-4 bg-black text-white font-bold rounded-md [&:not(:disabled)]:hover:bg-gray-800"
         disabled={isSubmitting}
       >
         <MagnifyingGlass size={20} />
