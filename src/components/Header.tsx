@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header className="bg-white pt-12 pb-32">
       <div className="w-full max-w-[1100px] mx-auto px-6 flex justify-between items-center">
-        <h1 className="font-bold text-4xl">Moneyc</h1>
+        <h1 className="font-bold text-4xl text-black">Moneyc</h1>
 
         <Dialog.Root>
           <Dialog.Trigger asChild>
