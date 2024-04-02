@@ -38,7 +38,7 @@ export default function SearchFormComponent() {
         disabled={isSubmitting}
       >
         <MagnifyingGlass size={20} />
-        Search
+        <span className="hidden md:inline">Search</span>
       </button>
     </form>
   );

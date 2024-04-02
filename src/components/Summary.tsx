@@ -6,7 +6,7 @@ export default function Summary() {
   const summary = useSummary();
 
   return (
-    <div className="w-full max-w-[1100px] mx-auto px-6 grid grid-cols-3 gap-8 mt-[-5rem]">
+    <div className="md:grid w-full max-w-[1100px] mx-auto px-6 flex flex-col md:grid-cols-3 gap-8 mt-[-5rem]">
       <div className="bg-gray-600 rounded-md p-8">
         <header className="flex items-center justify-between text-gray-300">
           <span>Income</span>

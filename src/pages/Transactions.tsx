@@ -15,24 +15,26 @@ export default function Transactions() {
       <Summary />
       <main className="w-full max-w-[1100px] mt-16 mx-auto px-6">
         <SearchForm />
-        <table className="w-full border-separate border-spacing-y-2 mt-6">
-          <tbody>
-            {
-              transactions.map(v => {
-                return (
-                  <tr key={v.id} className="*:py-6 *:px-8 *:bg-gray-700">
-                    <td className="rounded-l-md" width="50%">{v.description}</td>
-                    <td className={v.kind === "outcome" ? "text-red-300" : "text-green-300"}>
-                      {currencyFormatter.format(v.price)}
-                    </td>
-                    <td>{v.category}</td>
-                    <td className="rounded-r-md">{dateFormatter.format(new Date(v.createdAt))}</td>
-                  </tr>
-                );
-              })
-            }
-          </tbody>
-        </table>
+        <div className="overflow-x-auto mb-8">
+          <table className="w-full border-separate border-spacing-y-2 mt-6">
+            <tbody>
+              {
+                transactions.map(v => {
+                  return (
+                    <tr key={v.id} className="*:py-6 *:px-8 *:bg-gray-700">
+                      <td className="rounded-l-md" width="50%">{v.description}</td>
+                      <td className={v.kind === "outcome" ? "text-red-300" : "text-green-300"}>
+                        {currencyFormatter.format(v.price)}
+                      </td>
+                      <td>{v.category}</td>
+                      <td className="rounded-r-md">{dateFormatter.format(new Date(v.createdAt))}</td>
+                    </tr>
+                  );
+                })
+              }
+            </tbody>
+          </table>
+        </div>
       </main>
     </>
   );
