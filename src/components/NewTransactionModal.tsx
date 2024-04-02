@@ -35,7 +35,7 @@ export default function NewTransactionModal() {
   return (
     <Portal>
       <Overlay className="fixed h-screen w-screen inset-0 bg-[#00000075]" />
-      <Content className="min-w-[32rem] rounded-md p-12 bg-gray-800 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <Content className="md:min-w[32rem] max-w-[32rem] rounded-md p-12 bg-gray-800 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
 
         <div className="flex justify-between items-center">
           <Title className="text-3xl font-bold">New transaction</Title>
@@ -76,11 +76,11 @@ export default function NewTransactionModal() {
                 <Root onValueChange={field.onChange} value={field.value} className="grid grid-cols-2 gap-4 mt-2">
                   <Item value="income" className="data-[state=unchecked]:hover:bg-gray-600 *:data-[state=checked]:text-white data-[state=checked]:text-white data-[state=checked]:bg-green-500 bg-gray-700 p-4 flex items-center justify-center gap-2 rounded-md text-gray-300">
                     <ArrowCircleUp size={24} className="text-green-500" />
-                    Income
+                    <span className="hidden sm:inline">Income</span>
                   </Item>
                   <Item value="outcome" className="data-[state=unchecked]:hover:bg-gray-600 *:data-[state=checked]:text-white data-[state=checked]:text-white data-[state=checked]:bg-red-500 bg-gray-700 p-4 flex items-center justify-center gap-2 rounded-md text-gray-300">
                     <ArrowCircleDown size={24} className="text-red-500" />
-                    Outcome
+                    <span className="hidden md:inline">Outcome</span>
                   </Item>
                 </Root>
               );
