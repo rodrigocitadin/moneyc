@@ -6,18 +6,26 @@ Just for knowledge purposes with React, Typescript, Tailwind and some good libra
 
 First, clone:
 
-`git clone https://github.com/rodrigocitadin/moneyc && cd moneyc`
+```sh
+git clone https://github.com/rodrigocitadin/moneyc && cd moneyc
+```
 
 Then, install the deps:
 
-`npm i`
+```sh
+npm i
+```
 
 So, run the database:
 
-`npm run dev:db`
+```sh
+npm run dev:db
+```
 
 And run the front end
 
-`npm run dev`
+```sh
+npm run dev
+```
 
 Go to `localhost:5173` in your browser and you're done!
