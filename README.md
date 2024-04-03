@@ -21,7 +21,3 @@ And run the front end
 `npm run dev`
 
 Go to `localhost:5173` in your browser and you're done!
-
-## Todo
-
-- [ ] Mobile
